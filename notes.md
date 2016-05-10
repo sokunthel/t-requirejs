@@ -62,3 +62,7 @@ ex:
     ...
   });
 ```
+
+---
+
+The r.js optimizer allows us to have multiple files for development and a single file for release. It runs in Node.js. It can optionally minify the output files.
