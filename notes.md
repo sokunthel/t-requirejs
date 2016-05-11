@@ -99,7 +99,7 @@ ex:
 ```
 The above code is equivalent to the following
 ```javascript
-  define('underscore, ['jquery'], function($){
+  define('underscore', ['jquery'], function($){
     return window['_'];
   }
   
