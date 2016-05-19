@@ -5,7 +5,7 @@
 ex:
 ```javascript
   var _privatevariable = true
-  
+
   function _privatefunction(){
     ...
   }
@@ -30,7 +30,7 @@ ex:
 ```javascript
 define({modulenameString}, function(require, exports, module){
   var modulename1 = require({dependencyString});
-  
+
   export.{publicMember} = {publicValue}
 });
 ```
@@ -40,9 +40,9 @@ ex:
   define('tasks', function(require, exports, module){
     var $ = require('jquery');
     var ts = require('taskData');
-    
+
     ...
-    
+
     export.init = function() {
       ...
     });
@@ -92,7 +92,7 @@ ex:
       }
     }
   });
-  
+
   require(['underscore'], function(_){
     ...
   });
@@ -102,7 +102,7 @@ The above code is equivalent to the following
   define('underscore', ['jquery'], function($){
     return window['_'];
   }
-  
+
   require(['underscore'], function(_){
     ...
   });
@@ -121,8 +121,53 @@ Another example - if underscore library file was named underscore-1.0.min.js, bu
       }
     }
   });
-  
+
   require(['underscore'], function(_){
     ...
   });
+```
+
+---
+
+#### Config option
+
+A nice way to specify global app configuration in one place and have several modules use it.
+
+```javascript
+  require.config({
+    config: {
+      url: 'http://www.thelandnin.com'
+    }
+  });
+
+  define('dataModule', ['module'], function(mod) {
+    var url = mod.config().url;
+  });
+```
+
+The other way to specify global app configuration is create a config.js file itself.
+
+ex:
+config.js
+```javascript
+  define([], {
+    return {
+      url: 'http://www.thelandnin.com'
+    };
+  });
+```
+other module (ex: datamodule.js)
+```javascript
+  define(['config'], function(config) {
+    var url = config.url;
+  });
+```
+
+---
+
+### Plugins:
+
+#### Text(https://github.com/requirejs/text)
+```javascript
+  text!template/template.html
 ```
