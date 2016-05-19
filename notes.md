@@ -169,5 +169,28 @@ other module (ex: datamodule.js)
 
 #### Text(https://github.com/requirejs/text)
 ```javascript
-  text!template/template.html
+  require.config({
+    paths: {
+        'jquery': 'util/jquery-2.1.1.min',
+        'text': 'util/text',
+        'template': '../templates'
+    }
+  });
+
+  require('text!template/template.html');
+```
+
+### Handlebars
+```javascript
+  npm i require-handlebars-plug
+
+  require.config({
+    paths: {
+        'jquery': 'util/jquery-2.1.1.min',
+        'hbs': '../../node_modules/require-handlebars-plugin/hbs',
+        'template': '../templates'
+    }
+  });
+
+  require('hbs!template/template');
 ```

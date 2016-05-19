@@ -5,7 +5,10 @@ define(function(require, exports, module){
     // var taskTemplate = '<li class="task"><input class="complete" type="checkbox" /> <input class="description" type="text" placeholder="Enter task description..." /> <button class="delete-button">Delete</button></li>';
 
     // Text Plugin
-    var taskTemplate = require('text!template/taskTemplate.html');
+    // var taskTemplate = require('text!template/taskTemplate.html');
+
+    // Handlebars Plugin
+    var taskTemplate = require('hbs!template/taskTemplate');
 
 
     function renderTasks(tasks) {
@@ -22,11 +25,7 @@ define(function(require, exports, module){
     }
 
     function _renderTask(task) {
-        var $task = $(taskTemplate);
-        if(task.complete) {
-            $task.find(".complete").attr("checked", "checked");
-        }
-        $task.find(".description").val(task.description);
+        var $task = $(taskTemplate(task));
         return $task;
     }
 

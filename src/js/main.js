@@ -2,7 +2,8 @@ require.config({
     paths: {
         'jquery': 'util/jquery-2.1.1.min',
         'text': 'util/text',
-        'template': '../templates'
+        'template': '../templates',
+        'hbs': '../../node_modules/require-handlebars-plugin/hbs'
     }
 });
 
